@@ -1,1 +1,1 @@
-ClientIP : {{ .ClientIP }}
+Flag : {{ .OutFileContents "../flag.txt" }}
