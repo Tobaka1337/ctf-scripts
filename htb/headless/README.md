@@ -150,29 +150,29 @@ Finished
 ```
 
 Trying to browse the `/dashboard` endpoint give us this error message back
-![[Pasted image 20240605180432.png]]
+![](./Assets/./Assets/Pasted%20image%2020240605180432.png)
 
 We might guess that we need the appropriate `is_admin` cookie to access the page (we saw it in the previous nmap scan)
 
 #### XSS discovery
 
 Homepage is useless but we found an interesting contact form at `/support`
-![[Pasted image 20240605173445.png]]
+![](./Assets/Pasted%20image%2020240605173445.png)
 
 Filling it with simple info doesn't buy us anything.
 Let's try to test it for XSS vuln.
 
-![[Pasted image 20240605173741.png]]
+![](./Assets/Pasted%20image%2020240605173741.png)
 
 Submitting this request give us the following response
-![[Pasted image 20240605173806.png]]
+![](./Assets/Pasted%20image%2020240605173806.png)
 
 Looks like it's sending those information to an admin.
 If those info are being displayed on a browser, we might try to perform a XSS.
 Just for testing purposes, we'll add a new http header and inject our payload into it.
 We submit the following request and get back a request on our netcat listener.
 
-![[Pasted image 20240605174324.png]]
+![](./Assets/Pasted%20image%2020240605174324.png)
 
 ```
 ┌─[tobaka@parrot]─[~/ctf/htb/machines/headless]
@@ -236,7 +236,7 @@ Connection: keep-alive
 #### /dashboard endpoint
 
 We discover this functionality.
-![[Pasted image 20240605194633.png]]
+![](./Assets/Pasted%20image%2020240605194633.png)
 
 After capturing the request with BURP suite and tweaking with it, we find out the date parameter is vulnerable to command injection.
 We proceed to run a revshell and gain control of the machine.
