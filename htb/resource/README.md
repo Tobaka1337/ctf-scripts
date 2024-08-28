@@ -161,8 +161,7 @@ Next we take sign_key.sh on our machine and run it to sign our pubkey
 and finally we login as root on the target
 
 ```
-ssh -p 2222 root@ssg.htb -i $HOME/.ssh/id_rsa -o CertificateFile=id_rsa-ce
-rt.pub
+ssh -p 2222 root@ssg.htb -i $HOME/.ssh/id_rsa -o CertificateFile=id_rsa-cert.pub
 ```
 
 ---
